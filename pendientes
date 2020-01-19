@@ -1,0 +1,122 @@
+Proyecto VUE
+---------------
+Agregar Adenda: + verde va historia 3
+Btn Ojo, nuevo   + adenda
+
+Tareas
+- Crear registro adenda
+- Crear  Suscripción
+
+-------------------------
+
+15-01-20
+iniciar: npm run dev
+
+rama: rama-convenios
+nueva rama: convenio-rama
+---
+
+Datos Guardados:
+    'code': this.inputNumber,
+    'endDate': this.inputDateEnd,
+    'relatedDocument': this.inputRelatedDocument,
+    'startDate': this.inputDateBegin
+
+---
+Datos Convenio:
+Número: 001-2029
+Convenio: convenio jorge123
+Tema: Tema jorge123
+Objeto: Objeto tema jorge123
+
+001-2050
+
+rama: guardar-adenda
+
+----------------------------------------------
+rama nueva: registrar-adenda
+----------------------------------------------
+
+url: '/api/agreement',
+
+CREAR NUEVO CONVENIO: CON NÚMERO:   001-5050  |  id: 524
+http://localhost:9000/api/agreement/524
+{
+	"active": false,
+	"adendas": [],
+	"agreementDetails": [],
+	"amount": 3,
+	"amountTransfer": 3,
+	"automaticRenovation": false,
+	"code": "001-5050",
+	"endDate": "2020-01-12",
+	"id": 524,
+	"object": "objeto jorge",
+	"relatedDocument": null,
+	"responsible": null,
+	"snipNumber": "45421537",
+	"startDate": null,
+	"state": null,
+	"subject": "tema jorge",
+	"subscriptionDate": null,
+	"subtype": "cooperation",
+	"type": "specific"
+}
+
+ url: `/api/agreement/${id}/adenda`,
+ 
+CREAR NUEVO ADENDA: CON NÚMERO:   001-8080  | id: 35
+http://localhost:9000/api/agreement/1/adenda
+http://localhost:9000/api/adenda?limit=-1&page=-1&query=%7B%22id%22%3A35%7D
+
+[
+  {
+    "id": 35,
+    "code": "001-9090",
+    "startDate": "2020-01-05",
+    "endDate": "2020-01-18",
+    "agreement": null,
+    "active": false,
+    "state": null,
+    "relatedDocument": "www.minsa.com",
+    "adendaDetails": null
+  }
+]
+
+16/01/20
+rama actual: reegistrar adenda
+275: 'object': this.inputObjective,
+
+rama: panel-convenios
+
+--
+crear issue, 
+solicitud de merge,
+
+git fech con la rama,
+git status
+
+git add , commit , push, / git stash, stash pop
+
+6-add-listar-adendas
+
+
+
+
+17-01-20
+------------
+rama actual:   7-add-listar-suscriptores
+
+ 
+CREAR NUEVO ADENDA: CON NÚMERO: 
+
+Json suscriptores:
+
+NUMERO ADENDA, 
+
+{ 
+	"id":1,
+	"name":"Sociedad Peruana de Cancerología",
+	"country":null,
+	"active":true
+},
