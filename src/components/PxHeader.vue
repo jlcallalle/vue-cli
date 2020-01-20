@@ -19,9 +19,9 @@
 </template>
 
 <script>
-import PxIcon from "@/components/PxIcon";
+import PxIcon from '@/components/PxIcon'
 export default {
-  name: "app",
+  name: 'app',
   components: { PxIcon }
-};
+}
 </script>
