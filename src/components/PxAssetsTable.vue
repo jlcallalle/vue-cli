@@ -33,13 +33,13 @@
           <b>{{ a.name }}</b>
         </td>
         <td>
-          <b>{{ a.priceUsd }}</b>
+          <b>{{ a.priceUsd | dollar }}</b>
         </td>
         <td>
-          <b>{{ a.marketCapUsd }}</b>
+          <b>{{ a.marketCapUsd | dollar }}</b>
         </td>
         <td>
-          <b>{{ a.changePercent24Hr }}</b>
+          <b>{{ a.changePercent24Hr | percent }}</b>
         </td>
       </tr>
     </tbody>
