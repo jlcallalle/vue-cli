@@ -13,14 +13,34 @@
     </thead>
     <tbody>
       <tr
+        v-for="a in assets"
+        :key="a.id"
         class="border-b border-gray-200 hover:bg-gray-100 hover:bg-orange-100"
       >
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <img
+            class="w-6 h-6"
+            :src="
+              `https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png` /* https://static.coincap.io/assets/icons/btc@2x.png */
+            "
+            :alt="a.name"
+          />
+        </td>
+        <td>
+          <b>{{ a.rank }}</b>
+        </td>
+        <td>
+          <b>{{ a.name }}</b>
+        </td>
+        <td>
+          <b>{{ a.priceUsd }}</b>
+        </td>
+        <td>
+          <b>{{ a.marketCapUsd }}</b>
+        </td>
+        <td>
+          <b>{{ a.changePercent24Hr }}</b>
+        </td>
       </tr>
     </tbody>
   </table>
