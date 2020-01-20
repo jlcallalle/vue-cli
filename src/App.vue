@@ -1,6 +1,7 @@
 <template>
   <main>
-    <px-header /> <!-- Siempre se mostrara el heder-->
+    <px-header />
+    <!-- Siempre se mostrara el heder-->
 
     <router-view class="container px-5 sm:px-20 py-20 flex justify-center" />
   </main>
