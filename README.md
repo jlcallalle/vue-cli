@@ -6,7 +6,11 @@ Curso Vue
 
 Navegar automaticamente por las rutas.
 
+<<<<<<< HEAD
 En listar, se agregará un btn con link de ruta dinámico, se utiliza v-bind: to o :to, indicandole el nombre y el template de router.js
+=======
+En listar, ara que el link de ruta sea dinámico, se utiliza v-bind: to o :to, indicandole el nombre y el template de router.js
+>>>>>>> 09b8b91af79982d206798b8b2f696c21bcef01cd
 
 ```
 <router-link
@@ -26,7 +30,7 @@ En el logo, si deseamos agregar el link principal
 <br>
 
 
-**Forma programatica:** (dentro de una funcion del componente)<br>
+**Forma programatica:** (dentro de una funcion del componente)
 Deseamos crear un boton de detalle para cada criptomoneda direccionando a su ruta específica.
 
 1. Creamos componente :
@@ -68,7 +72,10 @@ En PxAssetsTable.vue, creamos método:
     }
   }
 ```
+<<<<<<< HEAD
 Note: $router permite acceder a la instancia del router
+=======
+>>>>>>> 09b8b91af79982d206798b8b2f696c21bcef01cd
 
 <br><br><br>
 ## 8.- Running the tests
