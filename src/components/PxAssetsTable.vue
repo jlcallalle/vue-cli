@@ -38,8 +38,14 @@
         <td>
           <b>{{ a.marketCapUsd | dollar }}</b>
         </td>
-        <td>
-          <b>{{ a.changePercent24Hr | percent }}</b>
+        <td
+          :class="
+            a.changePercent24Hr.includes('-')
+              ? 'text-red-600'
+              : 'text-green-600'
+          "
+        >
+          {{ a.changePercent24Hr | percent }}
         </td>
       </tr>
     </tbody>
