@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr class="bg-gray-100 border-b-2 border-gray-400">
-        <th><px-button /></th>
+        <!-- <th><px-button /></th> -->
         <th><span>Ranking</span></th>
         <th>Nombre</th>
         <th>Precio</th>
