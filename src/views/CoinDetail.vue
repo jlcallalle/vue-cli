@@ -144,6 +144,12 @@ export default {
     }
   },
 
+  watch: {
+    $route() {
+      this.getCoin()
+    }
+  },
+
   created() {
     // aqui llamamos a la funcion
     this.getCoin()
