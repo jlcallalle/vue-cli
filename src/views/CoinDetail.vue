@@ -1,6 +1,9 @@
 <template>
   <div class="flex-col">
-    <template>
+    <div class="flex justify-center">
+      <bounce-loader :loading="isLoading" :color="'#68d391'" :size="100" />
+    </div>
+    <template v-if="!isLoading">
       <div class="flex flex-col sm:flex-row justify-around items-center">
         <div class="flex flex-col items-center">
           <img
@@ -77,6 +80,7 @@ export default {
 
   data() {
     return {
+      isLoading: false,
       asset: {},
       history: []
     }
@@ -112,14 +116,16 @@ export default {
       //obtiene la funcion del api rest
       const id = this.$route.params.id
       console.log(id + ' id') // bitcoin
+
+      this.isLoading = true
       // api.getAsset(id).then(asset => (this.asset = asset)).
-      // Promise.all permite manejar diferentes promesas de manera simultanea 
-      Promise.all([api.getAsset(id), api.getAssetHistory(id)]).then(
-        ([asset, history]) => {
+      // Promise.all permite manejar diferentes promesas de manera simultanea
+      Promise.all([api.getAsset(id), api.getAssetHistory(id)])
+        .then(([asset, history]) => {
           this.asset = asset
           this.history = history
-        }
-      )
+        })
+        .finally(() => (this.isLoading = false))
     }
   }
 }

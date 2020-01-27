@@ -6,11 +6,7 @@ Curso Vue
 
 Navegar automaticamente por las rutas.
 
-<<<<<<< HEAD
 En listar, se agregará un btn con link de ruta dinámico, se utiliza v-bind: to o :to, indicandole el nombre y el template de router.js
-=======
-En listar, ara que el link de ruta sea dinámico, se utiliza v-bind: to o :to, indicandole el nombre y el template de router.js
->>>>>>> 09b8b91af79982d206798b8b2f696c21bcef01cd
 
 ```
 <router-link
@@ -72,18 +68,54 @@ En PxAssetsTable.vue, creamos método:
     }
   }
 ```
-<<<<<<< HEAD
 Note: $router permite acceder a la instancia del router
-=======
->>>>>>> 09b8b91af79982d206798b8b2f696c21bcef01cd
 
-<br><br><br>
-## 8.- Running the tests
 
-Explain how to run the automated tests for this system
+## 8.- Utilizar Componentes de terceros
 
-## Acknowledgments
+Uso de plugins Loader, vue-spinners y para gráfica vue-chartkick
+* https://github.com/Saeris/vue-spinners
+* https://github.com/ankane/vue-chartkick
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+En main.js
+$router permite acceder a la instancia del router
+
+En main.js, importamos las 2 librerias
+
+```
+import Chart from 'chart.js'
+import Chartick from 'vue-chartkick'
+import { VueSpinners } from '@saeris/vue-spinners'
+
+import { dollarFilter, percentFilter } from '@/filters'
+
+Vue.use(VueSpinners)
+Vue.use(Chartick.use(Chart))
+```
+
+Home.vue
+
+Se agrega la propiedad bounce-loader, se debe indicar cuando empieza y termina.
+
+```
+<bounce-loader :loading="isLoading" :color="'#68d391'" :size="100" />
+```
+Que se muestre cuando esta cargando: agregamos isLoading
+
+```
+data() {
+    return {
+      isLoading: false,
+    }
+  },
+  created() {
+    this.isLoading = true
+    api
+      .getAssets()
+      .then(assets => (this.assets = assets))
+      .finally(() => (this.isLoading = false))
+  }
+
+```
+
+una vez cargado que el valor isLoading es false de nuevo.
