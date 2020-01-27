@@ -1,24 +1,81 @@
-# proyecto
+# VUE CLI
 
-## Project setup
-```
-npm install
-```
+Curso Vue
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+### **7.- Navegacion Programatica**
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Navegar automaticamente por las rutas.
 
-### Lints and fixes files
+En listar, ara que el link de ruta sea dinámico, se utiliza v-bind: to o :to, indicandole el nombre y el template de router.js
+
 ```
-npm run lint
+<router-link
+    v-bind:to="{ name: 'coin-detail', params: { id: a.id } }" >
+    {{ a.name }}
+</router-link>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+En el logo, si deseamos agregar el link principal
+```
+<router-link to="/"> Platzi Exchange a </router-link>
+```
+```
+<router-link  :to="{ name: 'home' }"> Platzi Exchange </router-link>
+```
+
+<br>
+
+
+**Forma programatica:** (dentro de una funcion del componente)
+Deseamos crear un boton de detalle para cada criptomoneda direccionando a su ruta específica.
+
+1. Creamos componente :
+    - src/componentes/ PxButton.vue
+
+
+En PxButton.vue, creamos método:
+```
+ methods: {
+    buttonClick() {
+      this.$emit('custom-click')
+    }
+  }
+```
+En PxButton.vue, creamos directiva click en button en template:
+```
+<button @click="buttonClick"></button>
+```
+```
+TIP: v-on:click="buttonClick"  = @click="buttonClick"
+```
+
+En PxAssetsTable.vue, que es su padre importamos componente PxButton
+```
+import PxButton from '@/components/PxButton'
+```
+En PxAssetsTable.vue, agregamos en template:
+```
+<px-button @custom-click="goToCoin(a.id)">
+    <span>Detalle</span>
+</px-button>
+```
+
+En PxAssetsTable.vue, creamos método:
+```
+  methods: {
+    goToCoin(id) {
+      this.$router.push({ name: 'coin-detail', params: { id } })
+    }
+  }
+```
+
+<br><br><br>
+## 8.- Running the tests
+
+Explain how to run the automated tests for this system
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Inspiration
+* etc
