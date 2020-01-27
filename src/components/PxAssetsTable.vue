@@ -2,8 +2,10 @@
   <table>
     <thead>
       <tr class="bg-gray-100 border-b-2 border-gray-400">
-        <!-- <th><px-button /></th> -->
-        <th><span>Ranking</span></th>
+        <th></th>
+        <th>
+          <span>Ranking</span>
+        </th>
         <th>Nombre</th>
         <th>Precio</th>
         <th>Cap. de Mercado</th>
@@ -30,7 +32,13 @@
           <b>{{ a.rank }}</b>
         </td>
         <td>
-          <b>{{ a.name }}</b>
+          <router-link
+            class="hover:underline text-green-600"
+            v-bind:to="{ name: 'coin-detail', params: { id: a.id } }"
+          >
+            {{ a.name }}
+          </router-link>
+          <small class="ml-1 text-gray-500">{{ a.symbol }}</small>
         </td>
         <td>
           <b>{{ a.priceUsd | dollar }}</b>
@@ -47,18 +55,31 @@
         >
           {{ a.changePercent24Hr | percent }}
         </td>
+        <td class="hidden sm:block">
+          <px-button @custom-click="goToCoin(a.id)">
+            <span>Detalle</span>
+          </px-button>
+        </td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import PxButton from '@/components/PxButton'
+
 export default {
   name: 'PxAssetsTable',
+  components: { PxButton },
   props: {
     assets: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    goToCoin(id) {
+      this.$router.push({ name: 'coin-detail', params: { id } })
     }
   }
 }
