@@ -119,3 +119,16 @@ data() {
 ```
 
 una vez cargado que el valor isLoading es false de nuevo.
+
+Agregar grafica de precio
+
+```
+<line-chart
+    class="my-10"
+    :colors="['orange']"
+    :min="min"
+    :max="max"
+    :data="history.map(h => [h.date, parseFloat(h.priceUsd).toFixed(2)])"
+/>
+```
+Nota: con Vue.use, se puede integrar componentes de terceros
