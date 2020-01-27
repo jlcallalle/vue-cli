@@ -112,7 +112,14 @@ export default {
       //obtiene la funcion del api rest
       const id = this.$route.params.id
       console.log(id + ' id') // bitcoin
-      api.getAsset(id).then(asset => (this.asset = asset))
+      // api.getAsset(id).then(asset => (this.asset = asset)).
+      // Promise.all permite manejar diferentes promesas de manera simultanea 
+      Promise.all([api.getAsset(id), api.getAssetHistory(id)]).then(
+        ([asset, history]) => {
+          this.asset = asset
+          this.history = history
+        }
+      )
     }
   }
 }
