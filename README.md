@@ -132,3 +132,70 @@ Agregar grafica de precio
 />
 ```
 Nota: con Vue.use, se puede integrar componentes de terceros
+
+
+Agregar funcionalidad, mejores ofertas de cambio y 
+obtener la url de exchange
+
+En oferta de cambio, En api, crear funcion: 
+
+```
+function getMarkets(coin) {
+  return fetch(`${url}/assets/${coin}/markets?limit=5`)
+    .then(res => res.json())
+    .then(res => res.data)
+}
+```
+
+En CoinDetail.vue, en metodo getCoin():
+
+
+```
+data() {
+    return {
+        markets: []
+    }
+
+```
+
+```
+Promise.all([
+        api.getAsset(id),
+        api.getAssetHistory(id),
+        api.getMarkets(id)
+      ])
+        .then(([asset, history, markets]) => {
+          this.asset = asset
+          this.history = history
+          this.markets = markets
+        })
+        .finally(() => (this.isLoading = false))
+```
+
+
+
+## 9.- Filtros y ordenamiento
+
+En PxAssetsTable.vue
+
+```
+<input
+    class="bg-gray-100 focus:outline-none border-b border-gray-400 py-2 px-4 block w-full appearance-none leading-normal"
+    id="filter"
+    placeholder="Buscar..."
+    type="text"
+    v-model="filter"
+/>
+```
+
+Definimos:
+
+```
+data() {
+    return {
+        filter: ''
+    }
+}
+```
+
+Creamos computer property
